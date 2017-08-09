@@ -1,5 +1,8 @@
 package com.katas.PlutoRoverKata;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Pluto Rover Kata
  * This application aims to provide a solution to the below described kata.
@@ -17,14 +20,35 @@ package com.katas.PlutoRoverKata;
  * The only commands that can be given to the rover are: 'F', 'B, 'L', 'R'.
  * The API must implement edge wrapping and obstacle detection.
  * 
- * The following assumption has been made (not necessarily confirmed by spec):
+ * The following assumptions have been made (not necessarily confirmed by spec):
  *  - it is assumed that the grid length and width are of equal size. Thus, a
  *    max grid size of 100 will yield a 100 x 100 grid.
+ *  - it is assumed that, regardless of the number of rovers, movement is 
+ *    sequential, in that one rover has to move and carry on until the 
+ *    instruction sequence has been completed before the next rover can move.
  *    
  * @author Ioana Andone
  */
 public class App {
-    public static void main( String[] args ) {
-        System.out.println( "Hello World!" );
+	
+	private static final int MAX_GRID_SIZE = 100;
+	
+    public static void main(String[] args ) {
+    	
+    	final Planet pluto = new Planet("Pluto", MAX_GRID_SIZE);
+    	
+    	final Position roverPosition =
+				new Position(1, 2, 'N');
+    	
+    	final List<Obstacle> obstacles =
+    			new ArrayList<Obstacle>();
+    	
+    	pluto.addRover(
+				new Rover(
+						roverPosition,
+						"LFFRBLFRFRBBLBB", 
+						obstacles));
+    	
+    	pluto.explore();
     }
 }

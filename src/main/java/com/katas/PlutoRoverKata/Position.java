@@ -19,8 +19,13 @@ public class Position {
 	private char direction; 
 	
 	public Position(int x, int y) {
-		this.setX(x);
-		this.setY(y);
+		
+		if(x >= 0 && y >= 0) {
+			this.setX(x);
+			this.setY(y);
+		} else {
+			throw new IllegalArgumentException("Coordinates must be positive");
+		}
 	}
 	
 	public Position(int x, int y, char direction) {

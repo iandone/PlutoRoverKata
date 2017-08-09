@@ -1,0 +1,75 @@
+package com.katas.PlutoRoverKata;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Pluto is a Planet - implemented in case we want to explore other planets with
+ * these little guys in future :-)
+ * 
+ * @author Ioana Andone
+ */
+public class Planet {
+	
+	private String name = null;
+	
+	private int size = 0;
+
+	private List<Rover> rovers = null;
+
+	public Planet(String name, int size) {
+		
+		if(null != name && !name.isEmpty()) {
+			this.name = name;
+		} else {
+			throw new IllegalArgumentException(
+						"The planet name cannot be null");
+		}
+		
+		if(size > 0) {
+			this.size = size;
+		} else {
+			throw new IllegalArgumentException(
+						"The grid size must be positive and cannot be zero :)");
+		}
+		
+		this.rovers = new ArrayList<Rover>();
+	}
+	
+	public void explore() {
+		if(!this.rovers.isEmpty()) {
+			System.out.printf("Exploring %s...\n", name);
+			//explore
+		} else {
+			System.out.println("No rovers are available for exploring :(");
+		}
+	}
+
+	public void addRover(Rover rover) {
+		rovers.add(rover);
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public List<Rover> getRovers() {
+		return rovers;
+	}
+
+	public void setRovers(List<Rover> rovers) {
+		this.rovers = rovers;
+	}	
+}
