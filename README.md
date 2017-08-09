@@ -1,5 +1,5 @@
-### August, 2017
 ### author: iandone
+### date: 9 August, 2017
 
 # Pluto Rover Kata
 This application aims to provide a solution to the below described kata. The solution was implemented in just over 2 hours.
@@ -17,7 +17,7 @@ The following assumptions have been made (not necessarily confirmed by spec):
  *  it is assumed that rovers will share the same list of obstacles.
  *  it is assumed that if a rover has landed in a certain final position, the next rover that moves will not consider the first rover an obstacle when passing through the same spot :-)
     
-## Example output:
+## Example output when show movement flag is (on):
 
 ### Exploring Pluto...
 
