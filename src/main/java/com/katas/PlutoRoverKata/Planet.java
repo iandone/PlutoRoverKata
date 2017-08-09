@@ -13,6 +13,7 @@ public class Planet {
 	
 	private String name = null;
 	
+	@SuppressWarnings("unused")
 	private int size = 0;
 
 	private List<Rover> rovers = null;
@@ -20,23 +21,23 @@ public class Planet {
 	public Planet(String name, int size) {
 		
 		if(null != name && !name.isEmpty()) {
-			this.name = name;
+			this.setName(name);
 		} else {
 			throw new IllegalArgumentException(
 						"The planet name cannot be null");
 		}
 		
 		if(size > 0) {
-			this.size = size;
+			this.setSize(size);
 		} else {
 			throw new IllegalArgumentException(
 						"The grid size must be positive and cannot be zero :)");
 		}
 		
-		this.rovers = new ArrayList<Rover>();
+		this.setRovers(new ArrayList<Rover>());
 	}
 	
-	public void explore() {
+	public void explore(boolean showSequenceMovement) {
 		if(!this.rovers.isEmpty()) {
 			System.out.printf("Exploring %s...\n", name);
 			
@@ -45,7 +46,7 @@ public class Planet {
     			System.out.printf("\nRover %d: \n",i);
     			
     			rovers.get(i-1)
-    				  .executeInstructions();
+    				  .executeInstructions(showSequenceMovement);
     		}
 		} else {
 			System.out.println("No rovers are available for exploring :(");
@@ -56,27 +57,15 @@ public class Planet {
 		rovers.add(rover);
 	}
 	
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
+	private void setName(String name) {
 		this.name = name;
 	}
 
-	public int getSize() {
-		return size;
-	}
-
-	public void setSize(int size) {
+	private void setSize(int size) {
 		this.size = size;
 	}
 
-	public List<Rover> getRovers() {
-		return rovers;
-	}
-
-	public void setRovers(List<Rover> rovers) {
+	private void setRovers(List<Rover> rovers) {
 		this.rovers = rovers;
 	}	
 }

@@ -49,7 +49,7 @@ public class Rover {
 		}
 	}
 	
-	public void executeInstructions() {
+	public void executeInstructions(boolean showSequenceMovement) {
 		System.out.print("  - Initial Position: ");
 		
 		printPosition(true);
@@ -81,6 +81,14 @@ public class Rover {
             								"Unexpected instruction '%c' found", 
             								instruction));
         		}
+				
+				if(showSequenceMovement) {
+					System.out.print("  - Moving ");
+					System.out.printf(
+							"%s --> ", 
+							Character.toUpperCase(instruction));
+					printPosition(false);
+    			}
 			}
 		}
 			

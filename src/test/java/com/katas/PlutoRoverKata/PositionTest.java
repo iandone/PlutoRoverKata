@@ -1,5 +1,7 @@
 package com.katas.PlutoRoverKata;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.After;
 import org.junit.Test;
 
@@ -13,7 +15,6 @@ import org.junit.Test;
  */
 public class PositionTest {
 
-	@SuppressWarnings("unused")
 	private Position position = null;
 	
 	@After
@@ -39,5 +40,26 @@ public class PositionTest {
 	@Test
 	public void whenPositionCoordinatesAreValidConstructor2() {
 		position = new Position(10, 23);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void whenPositionsMergeWithOneBeingNull() {
+		position = new Position(40, 55, 'E');
+		position.merge(null);
+	}
+	
+	@Test
+	public void 
+	whenPositionsMergeWithOneBeingZeroZeroCoordinatesDoNotChangeChange() {
+		position = new Position(40, 55);
+		position.merge(new Position(0, 0));
+		assertEquals(new Position(40, 55), position);
+	}
+	
+	@Test
+	public void whenDifferentNonZeroPositionsMergeCoordinatesChange() {
+		position = new Position(40, 55, 'E');
+		position.merge(new Position(10, 5));
+		assertEquals(new Position(50, 0), position);
 	}
 }

@@ -35,7 +35,8 @@ public class App {
 	
     public static void main(String[] args ) {
     	
-    	final Planet pluto = new Planet("Pluto", MAX_GRID_SIZE);
+    	final Planet pluto = 
+    			new Planet("Pluto", MAX_GRID_SIZE);
     	
     	final Position roverPosition =
 				new Position(1, 2, 'N');
@@ -49,6 +50,6 @@ public class App {
 						"LFFRBLFRFRBBLBB", 
 						obstacles));
     	
-    	pluto.explore();
+    	pluto.explore(true);
     }
 }

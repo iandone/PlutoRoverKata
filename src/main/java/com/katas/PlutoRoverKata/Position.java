@@ -19,13 +19,8 @@ public class Position {
 	private char direction; 
 	
 	public Position(int x, int y) {
-		
-		if(x >= 0 && y >= 0) {
-			this.setX(x);
-			this.setY(y);
-		} else {
-			throw new IllegalArgumentException("Coordinates must be positive");
-		}
+		this.setX(x);
+		this.setY(y);
 	}
 	
 	public Position(int x, int y, char direction) {
@@ -43,10 +38,41 @@ public class Position {
 					Character.toUpperCase(direction));
 		}
 	}
-
+	
 	@Override
 	public String toString() {
 		return String.format("%d %d %c", x, y, direction);
+	}
+	
+	public void merge(Position gridPosition) {
+		
+		if(gridPosition == null) {
+			throw new IllegalArgumentException(
+					"Given merge coordinates position cannot be null.");
+		} else {
+    		this.x += gridPosition.getX();
+    		this.y += gridPosition.getY();
+		}
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		boolean isEqual = false;
+		
+		if (obj != null) {
+
+			if (getClass() == obj.getClass()) {
+
+				Position other = (Position) obj;
+				
+				if (x == other.x && y == other.y) {
+					isEqual = true;
+				}
+    		}
+		}
+		
+		return isEqual;
 	}
 	
 	public int getX() {

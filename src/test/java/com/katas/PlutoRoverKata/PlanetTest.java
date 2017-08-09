@@ -35,6 +35,6 @@ public class PlanetTest {
 	@Test
 	public void whenExploringWithNoRovers() {
 		planet = new Planet("Pluto", 500);
-		planet.explore();
+		planet.explore(false);
 	}
 }
