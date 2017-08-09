@@ -45,21 +45,21 @@ public class PositionTest {
 	@Test (expected = IllegalArgumentException.class)
 	public void whenPositionsMergeWithOneBeingNull() {
 		position = new Position(40, 55, 'E');
-		position.merge(null);
+		position.merge(null, 200);
 	}
 	
 	@Test
 	public void 
 	whenPositionsMergeWithOneBeingZeroZeroCoordinatesDoNotChangeChange() {
 		position = new Position(40, 55);
-		position.merge(new Position(0, 0));
+		position.merge(new Position(0, 0), 60);
 		assertEquals(new Position(40, 55), position);
 	}
 	
-//	@Test
+	@Test
 	public void whenDifferentNonZeroPositionsMergeCoordinatesChange() {
-//		position = new Position(40, 55, 'E');
-//		position.merge(new Position(10, 5));
-//		assertEquals(new Position(50, 0), position);
+		position = new Position(40, 55, 'E');
+		position.merge(new Position(10, 5), 70);
+		assertEquals(new Position(50, 0), position);
 	}
 }

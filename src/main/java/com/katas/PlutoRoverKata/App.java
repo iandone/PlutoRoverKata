@@ -26,6 +26,10 @@ import java.util.List;
  *  - it is assumed that, regardless of the number of rovers, movement is 
  *    sequential, in that one rover has to move and carry on until the 
  *    instruction sequence has been completed before the next rover can move.
+ *  - it is assumed that rovers will share the same list of obstacles.
+ *  - it is assumed that if a rover has landed in a certain final position, the
+ *    next rover that moves will not consider the first rover an obstacle when
+ *    passing through the same spot :-)
  *    
  * @author Ioana Andone
  */

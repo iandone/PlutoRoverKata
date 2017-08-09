@@ -25,6 +25,7 @@ public class Rover {
 	
 	private String instructions = null;
 	
+	@SuppressWarnings("unused")
 	private List<Obstacle> obstacles = null;
 	
 	private boolean isObstacleFound = false; 
@@ -49,7 +50,9 @@ public class Rover {
 		}
 	}
 	
-	public void executeInstructions(boolean showSequenceMovement) {
+	public void executeInstructions(
+			final int gridSize,
+			boolean showSequenceMovement) {
 		
 		System.out.print("  - Initial Position: ");
 		printPosition(true);
@@ -68,10 +71,10 @@ public class Rover {
             			moveRight();
             			break;
             		case 'F':
-            			moveForward();
+            			moveForward(gridSize);
             			break;
             		case 'B':
-            			moveBackward();
+            			moveBackward(gridSize);
             			break;
             		
             		default:
@@ -135,7 +138,7 @@ public class Rover {
 		}
 	}
 	
-	private void moveForward() {
+	private void moveForward(final int gridSize) {
 		
 		for(Direction dir : Direction.values()) {
 			
@@ -143,12 +146,14 @@ public class Rover {
 				break;
 			
 			} else if(dir.getDirection() == position.getDirection()) {
-				position.merge(dir.forward());
+				position.merge(dir.forward(), gridSize);
+				
+				setPositionChanged(true);
 			}
 		}
 	}
 	
-	private void moveBackward() {
+	private void moveBackward(final int gridSize) {
 		
 		for(Direction dir : Direction.values()) {
 			
@@ -156,7 +161,9 @@ public class Rover {
 				break;
 				
 			} else if(dir.getDirection() == position.getDirection()) {
-				position.merge(dir.backward());
+				position.merge(dir.backward(), gridSize);
+				
+				setPositionChanged(true);
 			}
 		}
 	}
@@ -175,25 +182,25 @@ public class Rover {
 		}
 	}
 
-	public Position getPosition() {
-		return position;
-	}
+//	public Position getPosition() {
+//		return position;
+//	}
 
 	private void setPosition(Position position) {
 		this.position = position;
 	}
 
-	public String getInstructions() {
-		return instructions;
-	}
+//	public String getInstructions() {
+//		return instructions;
+//	}
 
 	private void setInstructions(String instructions) {
 		this.instructions = instructions;
 	}
 
-	public List<Obstacle> getObstacles() {
-		return obstacles;
-	}
+//	public List<Obstacle> getObstacles() {
+//		return obstacles;
+//	}
 
 	private void setObstacles(List<Obstacle> obstacles) {
 		this.obstacles = obstacles;
@@ -203,7 +210,7 @@ public class Rover {
 		return isObstacleFound;
 	}
 
-	public void setObstacleFound(boolean isObstacleFound) {
+	private void setObstacleFound(boolean isObstacleFound) {
 		this.isObstacleFound = isObstacleFound;
 	}
 
@@ -211,7 +218,7 @@ public class Rover {
 		return isPositionChanged;
 	}
 
-	public void setPositionChanged(boolean isPositionChanged) {
+	private void setPositionChanged(boolean isPositionChanged) {
 		this.isPositionChanged = isPositionChanged;
 	}
 }

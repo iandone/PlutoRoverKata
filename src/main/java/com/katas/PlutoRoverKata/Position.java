@@ -44,14 +44,27 @@ public class Position {
 		return String.format("%d %d %c", x, y, direction);
 	}
 	
-	public void merge(Position gridPosition) {
+	public void merge(Position gridPosition, final int gridSize) {
 		
 		if(gridPosition == null) {
 			throw new IllegalArgumentException(
 					"Given merge coordinates position cannot be null.");
 		} else {
     		this.x += gridPosition.getX();
+    		
+    		if(this.x < 0) {
+    			this.x += gridSize;
+    		} else if(this.x >= gridSize) {
+    			this.x -= gridSize;
+    		}
+    		
     		this.y += gridPosition.getY();
+    		
+    		if(this.y < 0) {
+    			this.y += gridSize;
+    		} else if(this.y >= gridSize) {
+    			this.y -= gridSize;
+    		}
 		}
 	}
 	

@@ -13,7 +13,6 @@ public class Planet {
 	
 	private String name = null;
 	
-	@SuppressWarnings("unused")
 	private int size = 0;
 
 	private List<Rover> rovers = null;
@@ -38,6 +37,7 @@ public class Planet {
 	}
 	
 	public void explore(boolean showSequenceMovement) {
+		
 		if(!this.rovers.isEmpty()) {
 			System.out.printf("Exploring %s...\n", name);
 			
@@ -46,7 +46,9 @@ public class Planet {
     			System.out.printf("\nRover %d: \n",i);
     			
     			rovers.get(i-1)
-    				  .executeInstructions(showSequenceMovement);
+    				  .executeInstructions(
+    						  size,
+    						  showSequenceMovement);
     		}
 		} else {
 			System.out.println("No rovers are available for exploring :(");
