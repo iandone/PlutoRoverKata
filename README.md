@@ -1,5 +1,5 @@
-## August, 2017
-## author: iandone
+### August, 2017
+### author: iandone
 
 # Pluto Rover Kata
 This application aims to provide a solution to the below described kata. The solution was implemented in just over 2 hours.
@@ -17,11 +17,11 @@ The following assumptions have been made (not necessarily confirmed by spec):
  *  it is assumed that rovers will share the same list of obstacles.
  *  it is assumed that if a rover has landed in a certain final position, the next rover that moves will not consider the first rover an obstacle when passing through the same spot :-)
     
-# Example output:
+## Example output:
 
-## Exploring Pluto...
+### Exploring Pluto...
 
-Rover 1: 
+### Rover 1: 
   - Initial Position: 1 2 N with instructions: LFFRBLFRFRBBLBB
   - Moving L --> 1 2 W 
   - Moving F --> 0 2 W 
@@ -29,7 +29,7 @@ Rover 1:
     [!] Rover run terminated early (obstacle found)
   - Final position: 0 2 W 
 
-Rover 2: 
+### Rover 2: 
   - Initial Position: 50 25 E with instructions: FFFFRRLRBLFRFLBBB
   - Moving F --> 51 25 E 
   - Moving F --> 52 25 E 
@@ -50,7 +50,7 @@ Rover 2:
   - Moving B --> 54 27 S 
   - Final position: 54 27 S 
 
-Rover 3: 
+### Rover 3: 
   - Initial Position: 30 27 S with instructions: FLLFFRFFFAFF
   - Moving F --> 30 26 S 
   - Moving L --> 30 26 E 
