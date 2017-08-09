@@ -50,8 +50,8 @@ public class Rover {
 	}
 	
 	public void executeInstructions(boolean showSequenceMovement) {
-		System.out.print("  - Initial Position: ");
 		
+		System.out.print("  - Initial Position: ");
 		printPosition(true);
 		
 		for(char instruction : instructions.toCharArray()) {
@@ -143,7 +143,7 @@ public class Rover {
 				break;
 			
 			} else if(dir.getDirection() == position.getDirection()) {
-				//move fwd
+				position.merge(dir.forward());
 			}
 		}
 	}
@@ -156,7 +156,7 @@ public class Rover {
 				break;
 				
 			} else if(dir.getDirection() == position.getDirection()) {
-				//move bckwd
+				position.merge(dir.backward());
 			}
 		}
 	}
