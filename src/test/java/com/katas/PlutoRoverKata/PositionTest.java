@@ -1,6 +1,7 @@
 package com.katas.PlutoRoverKata;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import org.junit.After;
 import org.junit.Test;
@@ -46,6 +47,18 @@ public class PositionTest {
 	public void whenPositionsMergeWithOneBeingNull() {
 		position = new Position(40, 55, 'E');
 		position.merge(null, 200);
+	}
+	
+	@Test
+	public void whenPositionsAreEqualTestEquals() {
+		position = new Position(40, 55);
+		assertEquals(position, new Position(40, 55));
+	}
+	
+	@Test
+	public void whenPositionsAreNotEqualTestEquals() {
+		position = new Position(40, 55);
+		assertNotEquals(position, new Position(80, 25));
 	}
 	
 	@Test

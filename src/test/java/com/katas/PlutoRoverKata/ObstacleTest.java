@@ -1,5 +1,8 @@
 package com.katas.PlutoRoverKata;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+
 import org.junit.After;
 import org.junit.Test;
 
@@ -13,7 +16,6 @@ import org.junit.Test;
  */
 public class ObstacleTest {
 	
-	@SuppressWarnings("unused")
 	private Obstacle obstacle = null;
 	
 	@After
@@ -29,5 +31,17 @@ public class ObstacleTest {
 	@Test
 	public void whenGivenPositionIsValid() {
 		obstacle = new Obstacle(new Position(0, 23));
+	}
+	
+	@Test
+	public void whenObstaclesAreEqualTestEquals() {
+		obstacle = new Obstacle(new Position(33, 54));
+		assertEquals(obstacle, new Obstacle(new Position(33, 54)));
+	}
+	
+	@Test
+	public void whenObstaclesAreNotEqualTestEquals() {
+		obstacle = new Obstacle(new Position(33, 54));
+		assertNotEquals(obstacle, new Obstacle(new Position(33, 84)));
 	}
 }

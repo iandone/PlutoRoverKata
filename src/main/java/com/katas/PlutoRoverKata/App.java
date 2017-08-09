@@ -42,16 +42,37 @@ public class App {
     	final Planet pluto = 
     			new Planet("Pluto", MAX_GRID_SIZE);
     	
-    	final Position roverPosition =
-				new Position(1, 2, 'N');
-    	
+    	final Position obstaclePosition =
+				new Position(99, 2);
     	final List<Obstacle> obstacles =
     			new ArrayList<Obstacle>();
+    	obstacles.add(
+				new Obstacle(
+						obstaclePosition));
+    	
+    	final Position rover1Position =
+				new Position(1, 2, 'N');
+    	final Position rover2Position =
+				new Position(50, 25, 'E');
+    	final Position rover3Position =
+				new Position(30, 27, 'S');
     	
     	pluto.addRover(
 				new Rover(
-						roverPosition,
+						rover1Position,
 						"LFFRBLFRFRBBLBB", 
+						obstacles));
+    	
+    	pluto.addRover(
+				new Rover(
+						rover2Position,
+						"FFFFRRLRBLFRFLBBB",
+						obstacles));
+    	
+    	pluto.addRover(
+				new Rover(
+						rover3Position,
+						"FLLFFRFFFAFF",
 						obstacles));
     	
     	pluto.explore(true);

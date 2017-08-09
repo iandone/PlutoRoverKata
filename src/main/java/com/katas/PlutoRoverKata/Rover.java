@@ -25,7 +25,6 @@ public class Rover {
 	
 	private String instructions = null;
 	
-	@SuppressWarnings("unused")
 	private List<Obstacle> obstacles = null;
 	
 	private boolean isObstacleFound = false; 
@@ -148,7 +147,14 @@ public class Rover {
 			} else if(dir.getDirection() == position.getDirection()) {
 				position.merge(dir.forward(), gridSize);
 				
-				setPositionChanged(true);
+				if(obstacles != null
+						&& obstacles.contains(
+								new Obstacle(position))) {
+					moveBackward(gridSize);
+					setObstacleFound(true);
+				} else {
+					setPositionChanged(true);
+				}
 			}
 		}
 	}
@@ -163,7 +169,14 @@ public class Rover {
 			} else if(dir.getDirection() == position.getDirection()) {
 				position.merge(dir.backward(), gridSize);
 				
-				setPositionChanged(true);
+				if(obstacles != null
+						&& obstacles.contains(
+								new Obstacle(position))) {
+					moveForward(gridSize);
+					setObstacleFound(true);
+				} else {
+					setPositionChanged(true);
+				}				
 			}
 		}
 	}
@@ -182,25 +195,17 @@ public class Rover {
 		}
 	}
 
-//	public Position getPosition() {
-//		return position;
-//	}
+	public Position getPosition() {
+		return position;
+	}
 
 	private void setPosition(Position position) {
 		this.position = position;
 	}
 
-//	public String getInstructions() {
-//		return instructions;
-//	}
-
 	private void setInstructions(String instructions) {
 		this.instructions = instructions;
 	}
-
-//	public List<Obstacle> getObstacles() {
-//		return obstacles;
-//	}
 
 	private void setObstacles(List<Obstacle> obstacles) {
 		this.obstacles = obstacles;

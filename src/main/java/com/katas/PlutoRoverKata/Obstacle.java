@@ -8,7 +8,6 @@ package com.katas.PlutoRoverKata;
  */
 public class Obstacle {
 
-	@SuppressWarnings("unused")
 	private Position position = null;
 	
 	public Obstacle(Position position) {
@@ -18,6 +17,26 @@ public class Obstacle {
 		} else {
 			this.setPosition(position);
 		}
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		boolean isEqual = false;
+		
+		if (obj != null) {
+
+			if (getClass() == obj.getClass()) {
+
+				Obstacle other = (Obstacle) obj;
+
+				if (position.equals(other.position)) {
+        			isEqual = true;
+        		}
+    		}
+		}
+		
+		return isEqual;
 	}
 
 	private void setPosition(Position position) {

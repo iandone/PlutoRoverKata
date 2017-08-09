@@ -12,6 +12,7 @@ package com.katas.PlutoRoverKata;
  * @author Ioana Andone
  */
 public class Position {
+
 	private int x;
 	
 	private int y;
@@ -59,7 +60,7 @@ public class Position {
     		}
     		
     		this.y += gridPosition.getY();
-    		
+    	
     		if(this.y < 0) {
     			this.y += gridSize;
     		} else if(this.y >= gridSize) {
@@ -67,7 +68,7 @@ public class Position {
     		}
 		}
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		
