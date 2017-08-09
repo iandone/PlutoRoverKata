@@ -72,7 +72,7 @@ public class PositionTest {
 	@Test
 	public void whenDifferentNonZeroPositionsMergeCoordinatesChange() {
 		position = new Position(40, 55, 'E');
-		position.merge(new Position(10, 5), 70);
+		position.merge(new Position(10, 5), 60);
 		assertEquals(new Position(50, 0), position);
 	}
 }
