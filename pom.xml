@@ -8,7 +8,14 @@
   <packaging>jar</packaging>
 
   <name>PlutoRoverKata</name>
-  <description></description>
+  <description>Pluto Rover Kata solution, August 2017</description>
+  
+  <developers>
+    <developer>
+        <name>Ioana Andone</name>
+        <email>ioana.andone@gmail.com</email>
+    </developer>
+  </developers>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,7 +25,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
