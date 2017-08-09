@@ -44,6 +44,22 @@ public class Rover {
     		this.setObstacles(obstacles);
 		}
 	}
+	
+	public void executeInstructions() {
+		//this is where we execute movement instructions sequentially
+	}
+	
+	private void moveLeft() {
+	}
+	
+	private void moveRight() {
+	}
+	
+	private void moveForward() {
+	}
+	
+	private void moveBackward() {
+	}
 
 	public Position getPosition() {
 		return position;

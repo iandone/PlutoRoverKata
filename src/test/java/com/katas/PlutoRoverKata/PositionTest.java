@@ -35,4 +35,9 @@ public class PositionTest {
 	public void whenPositionCoordinatesAreValidConstructor1() {
 		position = new Position(10, 23, 'W');
 	}
+	
+	@Test
+	public void whenPositionCoordinatesAreValidConstructor2() {
+		position = new Position(10, 23);
+	}
 }

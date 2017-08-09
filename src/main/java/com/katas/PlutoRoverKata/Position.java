@@ -18,6 +18,11 @@ public class Position {
 	
 	private char direction; 
 	
+	public Position(int x, int y) {
+		this.setX(x);
+		this.setY(y);
+	}
+	
 	public Position(int x, int y, char direction) {
 		if(x < 0 || y < 0) {
 			throw new IllegalArgumentException(

@@ -16,7 +16,11 @@ package com.katas.PlutoRoverKata;
  * In order to control a rover, NASA sends a simple string of letters. 
  * The only commands that can be given to the rover are: 'F', 'B, 'L', 'R'.
  * The API must implement edge wrapping and obstacle detection.
-
+ * 
+ * The following assumption has been made (not necessarily confirmed by spec):
+ *  - it is assumed that the grid length and width are of equal size. Thus, a
+ *    max grid size of 100 will yield a 100 x 100 grid.
+ *    
  * @author Ioana Andone
  */
 public class App {
