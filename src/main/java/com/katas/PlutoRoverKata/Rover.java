@@ -27,6 +27,10 @@ public class Rover {
 	
 	private List<Obstacle> obstacles = null;
 	
+	private boolean isObstacleFound = false; 
+	
+	private boolean isPositionChanged = false;
+	
 	public Rover(
 			Position position,
 			String instructions,
@@ -46,19 +50,121 @@ public class Rover {
 	}
 	
 	public void executeInstructions() {
-		//this is where we execute movement instructions sequentially
+		System.out.print("  - Initial Position: ");
+		
+		printPosition(true);
+		
+		for(char instruction : instructions.toCharArray()) {
+			
+			if(!isObstacleFound()) {
+				
+				setPositionChanged(false);
+    			
+				switch(Character.toUpperCase(instruction)) {
+            		case 'L': 
+            			moveLeft();
+            			break;
+            		case 'R':
+            			moveRight();
+            			break;
+            		case 'F':
+            			moveForward();
+            			break;
+            		case 'B':
+            			moveBackward();
+            			break;
+            		
+            		default:
+            			throw 
+            				new IllegalArgumentException(
+            						String.format(
+            								"Unexpected instruction '%c' found", 
+            								instruction));
+        		}
+			}
+		}
+			
+		if(isObstacleFound()) {
+			System.out.println(
+					"    [!] Rover run terminated early (obstacle found)");
+		}
+		
+		System.out.print("  - Final position: ");
+		printPosition(false);
 	}
-	
+
 	private void moveLeft() {
+
+		for(Direction dir : Direction.values()) {
+			
+			if(isPositionChanged) {
+				break;
+				
+			} else if(dir.getDirection() == position.getDirection()) {
+				
+				position.setDirection(
+						dir.left().getDirection());
+				
+				isPositionChanged = true;
+			}
+		}
 	}
 	
 	private void moveRight() {
+		
+		for(Direction dir : Direction.values()) {
+			
+			if(isPositionChanged) {
+				break;
+				
+			} else if(dir.getDirection() == position.getDirection()) {
+				
+				position.setDirection(
+						dir.right().getDirection());
+				
+				isPositionChanged = true;
+			}
+		}
 	}
 	
 	private void moveForward() {
+		
+		for(Direction dir : Direction.values()) {
+			
+			if(isPositionChanged) {
+				break;
+			
+			} else if(dir.getDirection() == position.getDirection()) {
+				//move fwd
+			}
+		}
 	}
 	
 	private void moveBackward() {
+		
+		for(Direction dir : Direction.values()) {
+			
+			if(isPositionChanged) {
+				break;
+				
+			} else if(dir.getDirection() == position.getDirection()) {
+				//move bckwd
+			}
+		}
+	}
+	
+	public void printPosition(boolean printInstructions) {
+		
+		if(printInstructions) {
+        	System.out.printf(
+        			"%s with instructions: %s\n", 
+        			position.toString(), 
+        			instructions);
+		} else {
+			System.out.printf(
+					"%s \n", 
+					position.toString());
+		}
 	}
 
 	public Position getPosition() {
@@ -83,5 +189,21 @@ public class Rover {
 
 	private void setObstacles(List<Obstacle> obstacles) {
 		this.obstacles = obstacles;
+	}
+
+	public boolean isObstacleFound() {
+		return isObstacleFound;
+	}
+
+	public void setObstacleFound(boolean isObstacleFound) {
+		this.isObstacleFound = isObstacleFound;
+	}
+
+	public boolean isPositionChanged() {
+		return isPositionChanged;
+	}
+
+	public void setPositionChanged(boolean isPositionChanged) {
+		this.isPositionChanged = isPositionChanged;
 	}
 }

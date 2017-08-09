@@ -39,7 +39,14 @@ public class Planet {
 	public void explore() {
 		if(!this.rovers.isEmpty()) {
 			System.out.printf("Exploring %s...\n", name);
-			//explore
+			
+			for(int i = 1; i <= rovers.size(); i++) {
+    			
+    			System.out.printf("\nRover %d: \n",i);
+    			
+    			rovers.get(i-1)
+    				  .executeInstructions();
+    		}
 		} else {
 			System.out.println("No rovers are available for exploring :(");
 		}
