@@ -60,7 +60,9 @@ This application aims to provide a solution to the below described kata. The sol
   - Moving F --> 31 28 E 
   - Moving F --> 32 28 E 
   - Moving F --> 33 28 E 
+```
 Exception in thread "main" java.lang.IllegalArgumentException: Unexpected instruction 'A' found
 	at com.katas.PlutoRoverKata.Rover.executeInstructions(Rover.java:81)
 	at com.katas.PlutoRoverKata.Planet.explore(Planet.java:49)
 	at com.katas.PlutoRoverKata.App.main(App.java:78)
+```
